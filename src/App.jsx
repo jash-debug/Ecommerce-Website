@@ -6,6 +6,7 @@ import { ProductsList } from "./components/ProductsList";
 import { CartSheet } from "./components/CartSheet";
 import { LoginModal } from "./components/LoginModal";
 import { AdminDashboard } from "./pages/AdminDashboard";
+import { UserDashboard } from "./pages/UserDashboard";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -37,8 +38,16 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {pathname.startsWith("/dashboard") ? (
-        <AdminDashboard onNavigateHome={() => navigate("/")} />
+      {pathname === "/dashboard/users" ? (
+        <UserDashboard
+          onNavigateHome={() => navigate("/")}
+          onNavigateProducts={() => navigate("/dashboard")}
+        />
+      ) : pathname.startsWith("/dashboard") ? (
+        <AdminDashboard
+          onNavigateHome={() => navigate("/")}
+          onNavigateUsers={() => navigate("/dashboard/users")}
+        />
       ) : (
         <>
           <ProductsList

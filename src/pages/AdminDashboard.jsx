@@ -20,7 +20,7 @@ const formatPrice = (price) =>
     currency: "USD",
   }).format(price);
 
-export function AdminDashboard({ onNavigateHome }) {
+export function AdminDashboard({ onNavigateHome, onNavigateUsers }) {
   const { data, isLoading, isError, error } = useGetAllProducts();
   const queryClient = useQueryClient();
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -156,6 +156,7 @@ export function AdminDashboard({ onNavigateHome }) {
                 </button>
                 <button
                   type="button"
+                  onClick={onNavigateUsers}
                   className="flex w-full items-center justify-between rounded-2xl px-4 py-3 text-muted-foreground transition hover:bg-muted/50 hover:text-foreground"
                 >
                   <span>Customers</span>
