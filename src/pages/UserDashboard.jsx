@@ -122,7 +122,7 @@ export function UserDashboard({ onNavigateHome, onNavigateProducts }) {
                   type="button"
                   className="flex w-full items-center justify-between rounded-2xl bg-muted/70 px-4 py-3 font-medium"
                 >
-                  <span>Customers</span>
+                  <span>USERS</span>
                   <span className="rounded-full bg-background px-2 py-0.5 text-xs text-muted-foreground">
                     {total}
                   </span>
@@ -150,7 +150,7 @@ export function UserDashboard({ onNavigateHome, onNavigateProducts }) {
                 <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
                   User management
                 </p>
-                <h2 className="text-3xl font-semibold tracking-tight">Customers</h2>
+                <h2 className="text-3xl font-semibold tracking-tight">USERS</h2>
                 <p className="max-w-2xl text-sm text-muted-foreground">
                   Manage all registered users admins, moderators and regular customers
                   — from the DummyJSON API.

@@ -159,7 +159,7 @@ export function AdminDashboard({ onNavigateHome, onNavigateUsers }) {
                   onClick={onNavigateUsers}
                   className="flex w-full items-center justify-between rounded-2xl px-4 py-3 text-muted-foreground transition hover:bg-muted/50 hover:text-foreground"
                 >
-                  <span>Customers</span>
+                  <span>Users</span>
                   <ChevronDown className="h-4 w-4" />
                 </button>
               </nav>
