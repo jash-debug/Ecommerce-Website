@@ -95,7 +95,7 @@ export function LoginModal({ open, onClose, mode = "signin", onModeChange }) {
 
   return (
     <div
-      className="fixed inset-0 z-60 flex items-center justify-center bg-black/50 px-4 backdrop-blur-sm"
+      className="fixed inset-0 z-60 flex items-center justify-center bg-black/50 px-4 backdrop-blur-sm overflow-y-scroll"
       onClick={onClose}
     >
       <div

@@ -6,25 +6,13 @@ import { ProductsList } from "./components/ProductsList";
 import { CartSheet } from "./components/CartSheet";
 import { LoginModal } from "./components/LoginModal";
 import { AdminDashboard } from "./pages/AdminDashboard";
+import { Routes, Route } from "react-router";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [authMode, setAuthMode] = useState("signin");
-  const [pathname, setPathname] = useState(window.location.pathname);
 
-  useEffect(() => {
-    const handlePopState = () => setPathname(window.location.pathname);
-
-    window.addEventListener("popstate", handlePopState);
-
-    return () => window.removeEventListener("popstate", handlePopState);
-  }, []);
-
-  const navigate = (to) => {
-    window.history.pushState({}, "", to);
-    setPathname(to);
-  };
 
   const openAuth = (mode) => {
     if (mode === "guest") {
@@ -37,9 +25,10 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {pathname.startsWith("/dashboard") ? (
-        <AdminDashboard onNavigateHome={() => navigate("/")} />
-      ) : (
+
+      <Routes>
+      <Route path="/dashboard/*" element={<AdminDashboard />}/>
+      <Route path="/" element={
         <>
           <ProductsList
             onOpenCart={() => setIsCartOpen(true)}
@@ -57,7 +46,9 @@ function App() {
             onModeChange={setAuthMode}
           />
         </>
-      )}
+      } />
+      </Routes>
+  
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
