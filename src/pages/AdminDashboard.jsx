@@ -11,7 +11,7 @@ import { Routes, Route, Link, NavLink } from "react-router";
 
 
 
-export function AdminDashboard({ onNavigateHome }) {
+export function AdminDashboard() {
   const { data } = useGetAllProducts();
   const products = data ?? [];
 
